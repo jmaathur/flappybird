@@ -1,0 +1,5 @@
+flappybird/Build/*.wasm filter=lfs diff=lfs merge=lfs -text
+flappybird/Build/*.data filter=lfs diff=lfs merge=lfs -text
+flappybird/Build/*.unityweb filter=lfs diff=lfs merge=lfs -text
+flappybird/Build/*.br filter=lfs diff=lfs merge=lfs -text
+flappybird/Build/*.gz !text !filter !merge !diff
