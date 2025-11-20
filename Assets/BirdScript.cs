@@ -6,6 +6,7 @@ public class BirdScript : MonoBehaviour
     public float flapStrength;
     public LogicScript logic;
     public bool isAlive = true;
+    public float deadZone = -10;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +38,13 @@ public class BirdScript : MonoBehaviour
             if (shouldFlap)
             {
                 myRigidBody.linearVelocity = Vector2.up * flapStrength;
+            }
+
+            // Check if bird has fallen off screen
+            if (transform.position.y < deadZone)
+            {
+                logic.gameOver();
+                isAlive = false;
             }
         }
     }
