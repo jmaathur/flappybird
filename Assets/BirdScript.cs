@@ -4,6 +4,7 @@ public class BirdScript : MonoBehaviour
 {
     public Rigidbody2D myRigidBody;
     public float flapStrength;
+    public float gravityScale = 2.5f;
     public LogicScript logic;
     public bool isAlive = true;
     public float deadZone = -10;
@@ -11,6 +12,7 @@ public class BirdScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        myRigidBody.gravityScale = gravityScale;
         myRigidBody.linearVelocity = Vector2.up * flapStrength;
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
